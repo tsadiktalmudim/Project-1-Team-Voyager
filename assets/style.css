@@ -11,3 +11,20 @@ h1 {
   font-family: "Orbitron", sans-serif;
   font-family: "Space Mono", monospac;
 }
+*,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-decoration: none;
+  font-family: "Russo One";
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+}
