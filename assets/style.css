@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .btmLeft {
   height: 300px;
 }
@@ -11,6 +12,8 @@ h1 {
   font-family: "Orbitron", sans-serif;
   font-family: "Space Mono", monospac;
 }
+=======
+>>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
 *,
 body,
 h1,
@@ -20,6 +23,7 @@ h4,
 h5,
 h6,
 p {
+<<<<<<< HEAD
   text-decoration: none;
   font-family: "Russo One";
 }
@@ -28,3 +32,13 @@ p {
   display: flex;
   justify-content: center;
 }
+=======
+    text-decoration: none;
+    font-family: 'Russo One';
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+>>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
