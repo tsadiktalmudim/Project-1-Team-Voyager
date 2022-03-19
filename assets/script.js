@@ -22,15 +22,22 @@ var infoContainerElement = document.querySelector('#infoContainer')
         // loop through response
         for (var i = 0; i < upcomingLaunch.results.length; i++) {
              // format information from api fetch
-             var upcomingLaunchName = upcomingLaunch.results[i].slug
+             var upcomingLaunchName = upcomingLaunch.results[i].name
              var upcomingLaunchMission = upcomingLaunch.results[i].mission.description
              var upcomingLaunchTimer = upcomingLaunch.results[i].window_end
+             var upcomingLaunchImage = upcomingLaunch.results[i].image
              
              // create container card for upcomingLaunch info
              var infoDivElement = document.createElement('div')
-             infoDivElement.classList = 'w3-card'
+             infoDivElement.classList = 'w3-container'
               // append div to parent container
               infoContainerElement.appendChild(infoDivElement)
+
+            //  create element to hold image
+             var upcomingImageElement = document.createElement('img')
+             upcomingImageElement.src = upcomingLaunchImage
+             upcomingImageElement.classList = 'w3-round w3-image'
+             infoDivElement.appendChild(upcomingImageElement)
 
              // create element to hold formated information (name) 
              var upcomingNameElement = document.createElement('h2')
