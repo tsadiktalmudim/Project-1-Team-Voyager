@@ -50,6 +50,7 @@ var infoContainerElement = document.querySelector('#infoContainer')
             // create element to hold formated information (mission discription)
             var upcomingMissionElement = document.createElement('p')
             upcomingMissionElement.textContent = upcomingLaunchMission
+            upcomingMissionElement.classList = 'w3-padding-16'
             // append mission description to parent div
             infoDivElement.appendChild(upcomingMissionElement)
 
