@@ -29,7 +29,7 @@ var infoContainerElement = document.querySelector('#infoContainer')
              
              // create container card for upcomingLaunch info
              var infoDivElement = document.createElement('div')
-             infoDivElement.classList = 'w3-container'
+             infoDivElement.classList = 'w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge'
               // append div to parent container
               infoContainerElement.appendChild(infoDivElement)
 
@@ -37,6 +37,8 @@ var infoContainerElement = document.querySelector('#infoContainer')
              var upcomingImageElement = document.createElement('img')
              upcomingImageElement.src = upcomingLaunchImage
              upcomingImageElement.classList = 'w3-round w3-image'
+             upcomingImageElement.height = 400
+             upcomingImageElement.width = 400
              infoDivElement.appendChild(upcomingImageElement)
 
              // create element to hold formated information (name) 
