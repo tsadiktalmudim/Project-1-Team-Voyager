@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .btmLeft {
   height: 300px;
 }
@@ -14,6 +15,8 @@ h1 {
 }
 =======
 >>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
+=======
+>>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
 *,
 body,
 h1,
@@ -24,6 +27,7 @@ h5,
 h6,
 p {
 <<<<<<< HEAD
+<<<<<<< HEAD
   text-decoration: none;
   font-family: "Russo One";
 }
@@ -33,6 +37,8 @@ p {
   justify-content: center;
 }
 =======
+=======
+>>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
     text-decoration: none;
     font-family: 'Russo One';
 }
@@ -40,5 +46,9 @@ p {
 .search {
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
+}
+>>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
+=======
 }
 >>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
