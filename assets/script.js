@@ -1,21 +1,53 @@
 var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
 
-var apod = function () {
-    var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
+//apod date-picker
+var apodDate = $("#apodDatePicker").datepicker({
+    maxDate: '0',
+    dateFormat: 'yy-mm-dd',
+});
+
+//set the placeholder and 
+$(document).ready(function () {
+    //today gives us a date with more info then needed
+    var today = new Date();
+    //d will give of the day  
+    var dd = String(today.getDate()).padStart(2, '0');
+    //m will give us month
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    //y will give us the year
+    var yyyy = today.getFullYear();
+    //push the simple date value to today
+    today = yyyy + '-' + mm + '-' + dd;
+    //append today as a placeholder for our input
+    $('#apodDatePicker').attr('placeholder', today)
+    //push value of today to apod
+    apod(today)
+});
+
+//apod sumbit date to api
+$('#apod-submit').on('click', function () {
+    var usersubmit = apodDate.val()
+    if (usersubmit) {
+        apod(usersubmit);
+    }
+});
+
+//apod api
+var apod = function (date) {
+    var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey + '&date=' + date;
     fetch(apodApi).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
                 $('.apodImg').attr('src', data.url)
-                console.log(data)
-                console.log(data.url)
+
             })
         }
     })
 }
 
 apod();
-var infoContainerElement = document.querySelector('#infoContainer')
 
+var infoContainerElement = document.querySelector('#infoContainer')
 
 // FETCH API FOR UPCOMING LAUNCHES
 function upcomingLaunchData() {
@@ -23,9 +55,7 @@ function upcomingLaunchData() {
 
     fetch(apiURL).then(function (response) {
         if (response.ok) {
-            console.log(response)
             response.json().then(function (data) {
-                console.log(data)
                 displayLaunchInfo(data)
             })
         } else {
