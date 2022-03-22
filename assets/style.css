@@ -1,15 +1,10 @@
-.btmLeft {
+    .btmLeft {
     height: 300px;
 }
 
 .rightColBox {
     height: 100px;
     margin: 20px;
-}
-
-h1 {
-    font-family: "Orbitron", sans-serif;
-    font-family: "Space Mono", monospace;
 }
 
 *,
@@ -39,11 +34,9 @@ p {
 
 #navBar {
     padding-top: 80px;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 #voyager-title {
     font-size: 80px;
     margin-left: 50px;
-    font-family: "Space Mono", monospac;
-}

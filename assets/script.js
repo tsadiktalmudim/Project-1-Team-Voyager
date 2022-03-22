@@ -1,10 +1,10 @@
 var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
 
-var apod = function () {
+var apod = function() {
     var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
-    fetch(apodApi).then(function (response) {
+    fetch(apodApi).then(function(response) {
         if (response.ok) {
-            response.json().then(function (data) {
+            response.json().then(function(data) {
                 $('.apodImg').attr('src', data.url)
                 console.log(data)
                 console.log(data.url)
@@ -21,10 +21,10 @@ var infoContainerElement = document.querySelector('#infoContainer')
 function upcomingLaunchData() {
     var apiURL = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/`
 
-    fetch(apiURL).then(function (response) {
+    fetch(apiURL).then(function(response) {
         if (response.ok) {
             console.log(response)
-            response.json().then(function (data) {
+            response.json().then(function(data) {
                 console.log(data)
                 displayLaunchInfo(data)
             })
@@ -34,7 +34,7 @@ function upcomingLaunchData() {
     })
 }
 
-var displayLaunchInfo = function (upcomingLaunch) {
+var displayLaunchInfo = function(upcomingLaunch) {
     // loop through response
     for (var i = 0; i < upcomingLaunch.results.length; i++) {
         // format information from api fetch
@@ -45,14 +45,14 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
         // create container card for upcomingLaunch info
         var infoDivElement = document.createElement('div')
-        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge'
-        // append div to parent container
+        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge w3-margin'
+            // append div to parent container
         infoContainerElement.appendChild(infoDivElement)
 
         //  create element to hold image
         var upcomingImageElement = document.createElement('img')
         upcomingImageElement.src = upcomingLaunchImage
-        upcomingImageElement.classList = 'w3-round w3-image'
+        upcomingImageElement.classList = 'w3-round-xlarge w3-image'
         upcomingImageElement.height = 400
         upcomingImageElement.width = 400
         infoDivElement.appendChild(upcomingImageElement)
@@ -60,20 +60,20 @@ var displayLaunchInfo = function (upcomingLaunch) {
         // create element to hold formated information (name) 
         var upcomingNameElement = document.createElement('h2')
         upcomingNameElement.textContent = upcomingLaunchName
-        // append name headline to parent div
+            // append name headline to parent div
         infoDivElement.appendChild(upcomingNameElement)
 
         // create element to hold formated information (mission discription)
         var upcomingMissionElement = document.createElement('p')
         upcomingMissionElement.textContent = upcomingLaunchMission
         upcomingMissionElement.classList = 'w3-padding-16'
-        // append mission description to parent div
+            // append mission description to parent div
         infoDivElement.appendChild(upcomingMissionElement)
 
         // create element to hold formated information (countdown)
         var upcomingTimerElement = document.createElement('p')
         upcomingTimerElement.textContent = upcomingLaunchTimer
-        // append countdown to parent div
+            // append countdown to parent div
         infoDivElement.appendChild(upcomingTimerElement)
     }
 }
@@ -81,4 +81,3 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
 upcomingLaunchData()
     // displayLaunchInfo()
-
