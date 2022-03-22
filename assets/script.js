@@ -36,6 +36,7 @@ function upcomingLaunchData() {
 
 var displayLaunchInfo = function(upcomingLaunch) {
     // loop through response
+    // UPCOMING LAUNCH SECTION
     for (var i = 0; i < upcomingLaunch.results.length; i++) {
         // format information from api fetch
         var upcomingLaunchName = upcomingLaunch.results[i].name
@@ -77,7 +78,5 @@ var displayLaunchInfo = function(upcomingLaunch) {
         infoDivElement.appendChild(upcomingTimerElement)
     }
 }
-
-
-upcomingLaunchData()
-    // displayLaunchInfo()
+upcomingLaunchData();
+// displayLaunchInfo()
