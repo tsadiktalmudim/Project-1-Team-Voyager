@@ -34,8 +34,9 @@ function upcomingLaunchData() {
     })
 }
 
+// UPCOMING LAUNCH SECTION
 var displayLaunchInfo = function (upcomingLaunch) {
-    // loop through response
+//     // loop through response
     for (var i = 0; i < upcomingLaunch.results.length; i++) {
         // format information from api fetch
         var upcomingLaunchName = upcomingLaunch.results[i].name
@@ -46,6 +47,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
         // create container card for upcomingLaunch info
         var infoDivElement = document.createElement('div')
         infoDivElement.classList = 'w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge'
+        infoDivElement.id = 'infoDivEl'
         // append div to parent container
         infoContainerElement.appendChild(infoDivElement)
 
@@ -77,8 +79,9 @@ var displayLaunchInfo = function (upcomingLaunch) {
         infoDivElement.appendChild(upcomingTimerElement)
     }
 }
-
-
 upcomingLaunchData()
-    // displayLaunchInfo()
+
+
+
+
 

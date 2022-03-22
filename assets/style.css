@@ -1,18 +1,16 @@
-
 .btmLeft {
-  height: 300px;
+    height: 300px;
 }
 
 .rightColBox {
-  height: 100px;
-  margin: 20px;
+    height: 100px;
+    margin: 20px;
 }
 
 h1 {
-  font-family: "Orbitron", sans-serif;
-  font-family: "Space Mono", monospac;
+    font-family: "Orbitron", sans-serif;
+    font-family: "Space Mono", monospace;
 }
-
 
 *,
 body,
@@ -23,37 +21,34 @@ h4,
 h5,
 h6,
 p {
-
     text-decoration: none;
     font-family: 'Russo One';
 }
 
-  text-decoration: none;
-  font-family: "Russo One";
-}
-/* launch page */
-.search {
-  display: flex;
-  justify-content: center;
-}
-#navBar{
-  padding-top: 80px;
-  font-size: 24px;
+.w3-card-4 {
+    height: 400px;
 }
 
-#voyager-title {
-  font-size: 80px;
-  margin-left: 50px;
-  font-family: "Space Mono", monospac;
-}
+
+/* launch page */
 
 .search {
     display: flex;
     justify-content: center;
 }
 
+#navBar {
+    padding-top: 80px;
+    font-size: 24px;
+}
+
+#voyager-title {
+    font-size: 80px;
+    margin-left: 50px;
+    font-family: "Space Mono", monospac;
+}
+
 #infoDivEl {
   margin-bottom: 40px;
   margin-top: 20px;
 }
-
