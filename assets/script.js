@@ -1,11 +1,8 @@
-var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
-
 //apod date-picker
 var apodDate = $("#apodDatePicker").datepicker({
     maxDate: '0',
     dateFormat: 'yy-mm-dd',
 });
-
 //set the placeholder and 
 $(document).ready(function () {
     //today gives us a date with more info then needed
@@ -19,33 +16,73 @@ $(document).ready(function () {
     //push the simple date value to today
     today = yyyy + '-' + mm + '-' + dd;
     //append today as a placeholder for our input
-    $('#apodDatePicker').attr('placeholder', today)
+    $('#apodDatePicker').attr('placeholder', today);
     //push value of today to apod
-    apod(today)
+    apod(today);
 });
-
 //apod sumbit date to api
 $('#apod-submit').on('click', function () {
-    var usersubmit = apodDate.val()
+    var usersubmit = apodDate.val();
     if (usersubmit) {
         apod(usersubmit);
     }
 });
-
 //apod api
 var apod = function (date) {
+    var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
     var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey + '&date=' + date;
     fetch(apodApi).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                $('.apodImg').attr('src', data.url)
-
+                //variables for localstorage
+                var apodDate = data.date;
+                var apodTitle = data.title;
+                //append the img to the html
+                $('.apodImg').attr('src', data.url);
+                //save data to localstorage
+                localStorage.setItem(apodTitle, apodDate);
             })
         }
     })
-}
-
+};
+//apod history
+function apodHistory() {
+    for (i = 0; i < localStorage.length; i++) {
+        //getting the date from local storage
+        var apodImg = localStorage.getItem(localStorage.key(i));
+        //creating a div container
+        var apodDiv = $('<div>')
+        .addClass('apod-form w3-col s2')
+        //creating a button for the date selected
+        var apodBtn = $('<button>')
+        .addClass('apod-button')
+        .html(apodImg)
+        //creating a delete button
+        var apodDeleteBtn = $('<button>')
+        .addClass('apod-delete-btn')
+        .html('delete')
+        //where the div and btn's will be placed
+        var recentSearch = $('#apodHistory');
+        
+        apodDiv.append(apodBtn, apodDeleteBtn);
+        recentSearch.append(apodDiv);
+    }
+};
+//clicking apod-btn
+$('#apodHistory').on('click', '.apod-button', function(event) {
+    apodStoredDate = event.target.innerHTML;
+    if(apodStoredDate) {
+        apod(apodStoredDate);
+    }
+});
+//clicking the delete-btn
+$('#apodHistory').on('click', '.apod-delete-btn', function(event) {
+    var test = event.target.closest('div');
+    var test2 = test.querySelector('.apod-button').innerHTML
+    
+});
 apod();
+apodHistory();
 
 var infoContainerElement = document.querySelector('#infoContainer')
 
