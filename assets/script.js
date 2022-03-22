@@ -22,8 +22,10 @@ $(document).ready(function () {
 });
 //apod sumbit date to api
 $('#apod-submit').on('click', function () {
+    //value of the date the user choses
     var usersubmit = apodDate.val();
     if (usersubmit) {
+        //pushes the value to the apod function
         apod(usersubmit);
     }
 });
@@ -63,23 +65,31 @@ function apodHistory() {
         .html('delete')
         //where the div and btn's will be placed
         var recentSearch = $('#apodHistory');
-        
+        //appends apodbtn and deletebtn to the div
         apodDiv.append(apodBtn, apodDeleteBtn);
+        //appends the div and everything connected to the html
         recentSearch.append(apodDiv);
     }
 };
 //clicking apod-btn
 $('#apodHistory').on('click', '.apod-button', function(event) {
-    apodStoredDate = event.target.innerHTML;
+    //this variable will target the value of the specific button that is clicked
+    var apodStoredDate = event.target.innerHTML;
     if(apodStoredDate) {
+        //push that button value to the apod function
         apod(apodStoredDate);
     }
 });
 //clicking the delete-btn
 $('#apodHistory').on('click', '.apod-delete-btn', function(event) {
-    var test = event.target.closest('div');
-    var test2 = test.querySelector('.apod-button').innerHTML
-    
+    //variable will select the div of the target deletebtn clicked
+    var apodDivSelect = event.target.closest('div')
+    //variable will grab the value of the apodbtn from the targeted div 
+    var apodBtnSleect = apodDivSelect.querySelector('.apod-button').innerHTML
+    //deletes the div of the targeted button
+    $(this).closest("div").remove()
+    //removes the targeted value we found earlier from the localstorage
+    localStorage.removeItem(localStorage.key(apodBtnSleect))
 });
 apod();
 apodHistory();
