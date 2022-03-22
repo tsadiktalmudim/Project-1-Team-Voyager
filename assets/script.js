@@ -45,32 +45,8 @@ var displayLaunchInfo = function (upcomingLaunch) {
     var launch = upcomingLaunch.results[i].window_end;
     var launchFormat = launch.substring(0, 10);
     var endDate = new Date(launchFormat).getTime();
-    var countDownTimer = setInterval(() => {
-      var now = new Date().getTime();
 
-      var remainingTime = endDate - now;
-
-      const second = 1000;
-
-      const minute = second * 60;
-
-      const hour = minute * 60;
-
-      const day = hour * 24;
-
-      daysLeft = Math.trunc(remainingTime / day);
-
-      hoursLeft = Math.trunc((remainingTime % day) / hour);
-
-      minutesLeft = Math.trunc((remainingTime % hour) / minute);
-
-      secondsLeft = Math.trunc((remainingTime % minute) / second);
-      console.log(daysLeft, hoursLeft, minutesLeft, secondsLeft);
-
-      // create element to hold formated information (countdown)
-    }, 10000);
-
-    console.log();
+    console.log(countDownTimer);
 
     // create container card for upcomingLaunch info
     var infoDivElement = document.createElement("div");
@@ -102,13 +78,41 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
     // create element to hold formated information (countdown)
     var upcomingTimerElement = document.createElement("p");
-    upcomingTimerElement.textContent =
-      "Launch Countdown  " + countDownTimer.toString;
+    upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
+    upcomingTimerElement.textContent = "Launch Countdown  " + launchFormat;
     console.log(launch);
     // append countdown to parent div
     infoDivElement.appendChild(upcomingTimerElement);
+    var countDownTimer = (j, endDate) => {
+      var now = new Date().getTime();
+
+      var remainingTime = endDate - now;
+
+      const second = 1000;
+
+      const minute = second * 60;
+
+      const hour = minute * 60;
+
+      const day = hour * 24;
+
+      daysLeft = Math.trunc(remainingTime / day);
+
+      hoursLeft = Math.trunc((remainingTime % day) / hour);
+
+      minutesLeft = Math.trunc((remainingTime % hour) / minute);
+
+      secondsLeft = Math.trunc((remainingTime % minute) / second);
+      // console.log(daysLeft, hoursLeft, minutesLeft, secondsLeft);
+      $("#rocketlaunches" + [j]).html(
+        "Launch Countdown  " + "Day:" + daysLeft + "seconds left" + secondsLeft
+      );
+      console.log([j]);
+      // create element to hold formated information (countdown)
+    };
+    setInterval(countDownTimer.bind(null, i, endDate), 10000);
   }
 };
-countDownTimer;
+
 upcomingLaunchData();
 // displayLaunchInfo()
