@@ -105,12 +105,20 @@ var displayLaunchInfo = function (upcomingLaunch) {
       secondsLeft = Math.trunc((remainingTime % minute) / second);
       // console.log(daysLeft, hoursLeft, minutesLeft, secondsLeft);
       $("#rocketlaunches" + [j]).html(
-        "Launch Countdown  " + "Day:" + daysLeft + "seconds left" + secondsLeft
+        "Launch Countdown:  " +
+          "Day(s):   " +
+          daysLeft +
+          " Hour(s)  " +
+          hoursLeft +
+          " Minute(s)  " +
+          minutesLeft +
+          " Second(s)   " +
+          secondsLeft
       );
       console.log([j]);
       // create element to hold formated information (countdown)
     };
-    setInterval(countDownTimer.bind(null, i, endDate), 10000);
+    setInterval(countDownTimer.bind(null, i, endDate), 1000);
   }
 };
 
