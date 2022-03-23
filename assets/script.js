@@ -1,20 +1,97 @@
-// This is for the launch countdown
-var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
-
-var apod = function () {
-  var apodApi = "https://api.nasa.gov/planetary/apod?api_key=" + apiKey;
+//apod date-picker
+var apodDate = $("#apodDatePicker").datepicker({
+  maxDate: "0",
+  dateFormat: "yy-mm-dd",
+});
+//set the placeholder and
+$(document).ready(function () {
+  //today gives us a date with more info then needed
+  var today = new Date();
+  //d will give of the day
+  var dd = String(today.getDate()).padStart(2, "0");
+  //m will give us month
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  //y will give us the year
+  var yyyy = today.getFullYear();
+  //push the simple date value to today
+  today = yyyy + "-" + mm + "-" + dd;
+  //append today as a placeholder for our input
+  $("#apodDatePicker").attr("placeholder", today);
+  //push value of today to apod
+  apod(today);
+});
+//apod sumbit date to api
+$("#apod-submit").on("click", function () {
+  //value of the date the user choses
+  var usersubmit = apodDate.val();
+  if (usersubmit) {
+    //pushes the value to the apod function
+    apod(usersubmit);
+  }
+});
+//apod history
+function apodHistory() {
+  for (i = 0; i < localStorage.length; i++) {
+    //getting the date from local storage
+    var apodImg = localStorage.getItem(localStorage.key(i));
+    //creating a div container
+    var apodDiv = $("<div>").addClass("apod-form w3-col s2");
+    //creating a button for the date selected
+    var apodBtn = $("<button>").addClass("apod-button").html(apodImg);
+    //creating a delete button
+    var apodDeleteBtn = $("<button>")
+      .addClass("apod-delete-btn")
+      .html("delete");
+    //where the div and btn's will be placed
+    var recentSearch = $("#apodHistory");
+    //appends apodbtn and deletebtn to the div
+    apodDiv.append(apodBtn, apodDeleteBtn);
+    //appends the div and everything connected to the html
+    recentSearch.append(apodDiv);
+  }
+}
+//apod api
+var apod = function (date) {
+  var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
+  var apodApi =
+    "https://api.nasa.gov/planetary/apod?api_key=" + apiKey + "&date=" + date;
   fetch(apodApi).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
+        //variables for localstorage
+        var apodDate = data.date;
+        var apodTitle = data.title;
+        //append the img to the html
         $(".apodImg").attr("src", data.url);
-        console.log(data);
-        console.log(data.url);
+        //save data to localstorage
+        localStorage.setItem(apodTitle, apodDate);
       });
     }
   });
 };
-
+//clicking apod-btn
+$("#apodHistory").on("click", ".apod-button", function (event) {
+  //this variable will target the value of the specific button that is clicked
+  var apodStoredDate = event.target.innerHTML;
+  if (apodStoredDate) {
+    //push that button value to the apod function
+    apod(apodStoredDate);
+  }
+});
+//clicking the delete-btn
+$("#apodHistory").on("click", ".apod-delete-btn", function (event) {
+  //variable will select the div of the target deletebtn clicked
+  var apodDivSelect = event.target.closest("div");
+  //variable will grab the value of the apodbtn from the targeted div
+  var apodBtnSleect = apodDivSelect.querySelector(".apod-button").innerHTML;
+  //deletes the div of the targeted button
+  $(this).closest("div").remove();
+  //removes the targeted value we found earlier from the localstorage
+  localStorage.removeItem(localStorage.key(apodBtnSleect));
+});
 apod();
+apodHistory();
+
 var infoContainerElement = document.querySelector("#infoContainer");
 
 // FETCH API FOR UPCOMING LAUNCHES
