@@ -29,24 +29,6 @@ $('#apod-submit').on('click', function () {
         apod(usersubmit);
     }
 });
-//apod api
-var apod = function (date) {
-    var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
-    var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey + '&date=' + date;
-    fetch(apodApi).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                //variables for localstorage
-                var apodDate = data.date;
-                var apodTitle = data.title;
-                //append the img to the html
-                $('.apodImg').attr('src', data.url);
-                //save data to localstorage
-                localStorage.setItem(apodTitle, apodDate);
-            })
-        }
-    })
-};
 //apod history
 function apodHistory() {
     for (i = 0; i < localStorage.length; i++) {
@@ -70,6 +52,24 @@ function apodHistory() {
         //appends the div and everything connected to the html
         recentSearch.append(apodDiv);
     }
+};
+//apod api
+var apod = function (date) {
+    var apiKey = 'C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2'
+    var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey + '&date=' + date;
+    fetch(apodApi).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                //variables for localstorage
+                var apodDate = data.date;
+                var apodTitle = data.title;
+                //append the img to the html
+                $('.apodImg').attr('src', data.url);
+                //save data to localstorage
+                localStorage.setItem(apodTitle, apodDate);
+            })
+        }
+    })
 };
 //clicking apod-btn
 $('#apodHistory').on('click', '.apod-button', function(event) {
