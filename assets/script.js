@@ -43,6 +43,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
     var upcomingLaunchImage = upcomingLaunch.results[i].image;
     var launch = upcomingLaunch.results[i].window_end;
+    // Cut off the 0s in the  launch var to have the correct sytle date ex 12/12/2003 for the launch countdown
     var launchFormat = launch.substring(0, 10);
     var endDate = new Date(launchFormat).getTime();
 
@@ -78,11 +79,11 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
     // create element to hold formated information (countdown)
     var upcomingTimerElement = document.createElement("p");
+    // need to create a unique id for each this to work
     upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
-    upcomingTimerElement.textContent = "Launch Countdown  " + launchFormat;
-    console.log(launch);
-    // append countdown to parent div
+
     infoDivElement.appendChild(upcomingTimerElement);
+    // Passing j, and enDate for the bind to work
     var countDownTimer = (j, endDate) => {
       var now = new Date().getTime();
 
@@ -106,18 +107,26 @@ var displayLaunchInfo = function (upcomingLaunch) {
       // console.log(daysLeft, hoursLeft, minutesLeft, secondsLeft);
       $("#rocketlaunches" + [j]).html(
         "Launch Countdown:  " +
-          "Day(s):   " +
+          "Day(s):  " +
           daysLeft +
-          " Hour(s)  " +
+          "| Hour(s):  " +
           hoursLeft +
-          " Minute(s)  " +
+          "| Minute(s):  " +
           minutesLeft +
-          " Second(s)   " +
-          secondsLeft
+          "| Second(s):   " +
+          secondsLeft +
+          "|"
       );
       console.log([j]);
+      // If timmer hits 0 this is what it will exicute , we can add some effects here he if we want
+
+      if (remainingTime < 0) {
+        $("#rocketlaunches" + [j]).html("We Have Liftoff!!!!!!!!!!!! ");
+      }
       // create element to hold formated information (countdown)
     };
+    // The last item in the loop was showing up for all of them, used a bind to take a snapshot of the code that could not be changed
+    // interval is set to every second
     setInterval(countDownTimer.bind(null, i, endDate), 1000);
   }
 };
