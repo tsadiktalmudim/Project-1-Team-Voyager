@@ -53,7 +53,6 @@ function apodHistory() {
     
   }
 }
-
 //apod api
 var apod = function (date) {
   var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
@@ -96,9 +95,7 @@ $("#apodHistory").on("click", ".apod-delete-btn", function (event) {
 });
 apod();
 
-
 var infoContainerElement = document.querySelector("#infoContainer");
-
 // FETCH API FOR UPCOMING LAUNCHES
 function upcomingLaunchData() {
   var apiURL = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/`;
@@ -115,7 +112,6 @@ function upcomingLaunchData() {
     }
   });
 }
-
 var displayLaunchInfo = function (upcomingLaunch) {
   // loop through response
   for (var i = 0; i < upcomingLaunch.results.length; i++) {
