@@ -1,140 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Voyager Space Tracker</title>
-  </head>
+</head>
 
-  <body class="w3-black">
+<body class="w3-black">
     <!-- Link to APOD for hero display-->
     <header class="w3-row w3-center hero">
-      <h1 class="w3-container">Voyager Space Tracker</h1>
-      <div class="w3-display-container">
-        <img class="apodImg" src="" />
-        <h3 class="headerText w3-display-middle w3-container">APOD</h3>
-        <span class="w3-tiny w3-display-bottommiddle w3-container"
-          >(That's Astronomy Picture of the Day for you pedestrians)</span
-        >
-      </div>
-      <!--date and storage-->
-      <div class="w3-row">
-        <div class="w3-left w3-col s3">
-          <input type="text" class="" id="apodDatePicker" />
-          <button type="submit" class="" id="apod-submit">Submit</button>
+        <h1 class=" w3-container">Voyager Space Tracker</h1>
+        <div class="w3-display-container">
+            <img class='apodImg' src="">
+            <h3 class="headerText w3-display-middle w3-container">APOD</h3><span class="w3-tiny w3-display-bottommiddle w3-container">(That's Astronomy Picture of the Day for you pedestrians)</span>
         </div>
-        <div class="" id="apodHistory"></div>
-      </div>
+            <!--date and storage-->
+    <div class="w3-row">
+        <div class="w3-left w3-col s3">
+            <input type="text" class="" id="apodDatePicker">
+            <button type="submit" class="" id="apod-submit">Submit</button>
+        </div>
+        <div class="" id="apodHistory">
+
+        </div>
+    </div>
     </header>
     <!-- Begin cards with links to secondary html file -->
     <!-- Launch card -->
-    <div
-      class="w3-row-padding w3-margin-left w3-margin-right"
-      style="background-color: rgb(69, 69, 69)"
-    >
-      <div class="w3-col l3 m6 s12 w3-section">
-        <div
-          class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale"
-        >
-          <a href="./launch.html">
-            <img
-              src="assets\images\launch.gif"
-              style="width: 80%"
-              class="w3-padding-16"
-            />
-            <h3 class="w3-container descripton">Launches</h3>
-            <p class="w3-container descripton">
-              Click here to see an array of spaceship launches from past and
-              upcoming launch dates.
-            </p>
-          </a>
+    <div class="w3-row-padding w3-margin-left w3-margin-right" style="background-color: rgb(69, 69, 69);">
+        <div id='launchCard' class="w3-col l3 m6 s12 w3-section">
+            <div class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale">
+                <a href="./launch.html">
+                    <img src="assets\images\launch.gif" style="width:80%" class="w3-padding-16">
+                    <h3 class="w3-container descripton">Launches</h3>
+                    <p class="w3-container descripton">Click here to see an array of spaceship launches from past and upcoming launch dates.</p>
+                </a>
+            </div>
         </div>
-      </div>
 
-      <!--Space Stations card -->
-      <div class="w3-col l3 m6 s12 w3-section">
-        <div
-          class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale"
-        >
-          <a href="">
-            <img
-              src="assets\images\space-station.jpg"
-              style="width: 95%"
-              class="w3-padding-16"
-            />
-            <h3 class="w3-container descripton">Space Stations</h3>
-            <p class="w3-container descripton">
-              Click here to see an array of space stations that are either
-              upcoming, in service or retired.
-            </p>
-          </a>
+        <!--Space Stations card -->
+        <div id="stationCard" class="w3-col l3 m6 s12 w3-section">
+            <div class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale">
+                <a href="./station.html">
+                    <img src="assets\images\space-station.jpg" style="width:95%" class="w3-padding-16">
+                    <h3 class="w3-container descripton">Space Stations</h3>
+                    <p class="w3-container descripton">Click here to see an array of space stations that are either upcoming, in service or retired.</p>
+                </a>
+            </div>
         </div>
-      </div>
 
-      <!-- Docking Events card -->
-      <div class="w3-col l3 m6 s12 w3-section">
-        <div
-          class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale"
-        >
-          <a href="">
-            <img
-              src="assets\images\docking-events.webp"
-              style="width: 95%"
-              class="w3-padding-16"
-            />
-            <h3 class="w3-container descripton">Docking Events</h3>
-            <p class="w3-container descripton">
-              Click here to see an array of space station docking events from
-              the past and future.
-            </p>
-          </a>
+        <!-- Docking Events card -->
+        <div class="w3-col l3 m6 s12  w3-section">
+            <div class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale">
+                <a href="">
+                    <img src="assets\images\docking-events.webp" style="width:95%" class="w3-padding-16">
+                    <h3 class="w3-container descripton">Docking Events</h3>
+                    <p class="w3-container descripton">Click here to see an array of space station docking events from the past and future.</p>
+                </a>
+            </div>
         </div>
-      </div>
 
-      <!-- Astronauts card -->
-      <div class="w3-col l3 m6 s12 w3-section">
-        <div
-          class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale"
-        >
-          <a href="./astronauts.html">
-            <img
-              src="assets\images\astronauts.webp"
-              style="width: 95%"
-              class="w3-padding-16"
-            />
-            <h3 class="w3-container descripton">Astronauts</h3>
-            <p class="w3-container descripton">
-              Click here to see an array of astronauts that have served our
-              planet, in service or are currently in training.
-            </p>
-          </a>
+        <!-- Astronauts card -->
+        <div class="w3-col l3 m6 s12 w3-section">
+            <div class="w3-card-4 w3-dark-gray w3-center w3-round w3-hover-grayscale">
+                <a href="./astronauts.html">
+                    <img src="assets\images\astronauts.webp" style="width:95%" class="w3-padding-16">
+                    <h3 class="w3-container descripton">Astronauts</h3>
+                    <p class="w3-container descripton">Click here to see an array of astronauts that have served our planet, in service or are currently in training.</p>
+                </a>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./assets/script.js"></script>
-  <script src="./assets/astroscript.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./assets/script.js"></script>
+
 </html>
