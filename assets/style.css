@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> a72bee4d2030cb8433842f52ac80c662b6f667f6
 .btmLeft {
   height: 300px;
 }
@@ -13,16 +7,6 @@
   margin: 20px;
 }
 
-h1 {
-  font-family: "Orbitron", sans-serif;
-  font-family: "Space Mono", monospac;
-}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
->>>>>>> 35c997dbf0dffea63d7248d263c2bf84a931732a
->>>>>>> a72bee4d2030cb8433842f52ac80c662b6f667f6
 *,
 body,
 h1,
@@ -32,39 +16,26 @@ h4,
 h5,
 h6,
 p {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    text-decoration: none;
-    font-family: 'Russo One';
-}
-=======
-<<<<<<< HEAD
->>>>>>> a72bee4d2030cb8433842f52ac80c662b6f667f6
   text-decoration: none;
   font-family: "Russo One";
 }
+
+.w3-card-4 {
+  height: 400px;
+}
 /* launch page */
+
 .search {
   display: flex;
   justify-content: center;
 }
-#navBar{
+
+#navBar {
   padding-top: 80px;
-  font-size: 24px;
+  font-size: 20px;
 }
-<<<<<<< HEAD
+
 #voyager-title {
   font-size: 80px;
   margin-left: 50px;
-  font-family: "Space Mono", monospac;
 }
-=======
-
-.search {
-    display: flex;
-    justify-content: center;
-}
->>>>>>> 3f1b5b8fd2194c8c45c580fe8b26d4007e9d79b0
->>>>>>> 35c997dbf0dffea63d7248d263c2bf84a931732a
->>>>>>> a72bee4d2030cb8433842f52ac80c662b6f667f6
