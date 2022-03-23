@@ -39,3 +39,8 @@ p {
   font-size: 80px;
   margin-left: 50px;
 }
+
+.hide {
+    display: none;
+}
+
