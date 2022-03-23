@@ -199,7 +199,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
           secondsLeft +
           "|"
       );
-      console.log([j]);
+      //   console.log([j]);
       // If timmer hits 0 this is what it will exicute , we can add some effects here he if we want
 
       if (remainingTime < 0) {
@@ -214,4 +214,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
 };
 
 upcomingLaunchData();
-// displayLaunchInfo()
+
+fetchData();
+
+displayLaunchInfo();
