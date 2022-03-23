@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*root*/
 h1 {
   font-family: "Orbitron", sans-serif;
@@ -40,3 +41,46 @@ img.apodImg {
 .btmLeft {
   height: 300px;
 }
+=======
+        .btmLeft {
+            height: 300px;
+        }
+        
+        .rightColBox {
+            height: 100px;
+            margin: 20px;
+        }
+        
+        *,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            text-decoration: none;
+            font-family: 'Russo One';
+        }
+        
+        .w3-card-4 {
+            height: 400px;
+        }
+        /* launch page */
+        
+        .search {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #navBar {
+            padding-top: 80px;
+            font-size: 20px;
+        }
+        
+        #voyager-title {
+            font-size: 80px;
+            margin-left: 50px;
+        }
+>>>>>>> ad411faabf341df381d5c4f3a8f3d09e55c11756

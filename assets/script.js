@@ -100,7 +100,7 @@ var infoContainerElement = document.querySelector('#infoContainer')
 function upcomingLaunchData() {
     var apiURL = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/`
 
-    fetch(apiURL).then(function (response) {
+    fetch(apiURL).then(function(response) {
         if (response.ok) {
             response.json().then(function (data) {
                 displayLaunchInfo(data)
@@ -111,8 +111,9 @@ function upcomingLaunchData() {
     })
 }
 
-var displayLaunchInfo = function (upcomingLaunch) {
+var displayLaunchInfo = function(upcomingLaunch) {
     // loop through response
+    // UPCOMING LAUNCH SECTION
     for (var i = 0; i < upcomingLaunch.results.length; i++) {
         // format information from api fetch
         var upcomingLaunchName = upcomingLaunch.results[i].name
@@ -122,14 +123,14 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
         // create container card for upcomingLaunch info
         var infoDivElement = document.createElement('div')
-        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge'
-        // append div to parent container
+        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge w3-margin'
+            // append div to parent container
         infoContainerElement.appendChild(infoDivElement)
 
         //  create element to hold image
         var upcomingImageElement = document.createElement('img')
         upcomingImageElement.src = upcomingLaunchImage
-        upcomingImageElement.classList = 'w3-round w3-image'
+        upcomingImageElement.classList = 'w3-round-xlarge w3-image'
         upcomingImageElement.height = 400
         upcomingImageElement.width = 400
         infoDivElement.appendChild(upcomingImageElement)
@@ -137,25 +138,22 @@ var displayLaunchInfo = function (upcomingLaunch) {
         // create element to hold formated information (name) 
         var upcomingNameElement = document.createElement('h2')
         upcomingNameElement.textContent = upcomingLaunchName
-        // append name headline to parent div
+            // append name headline to parent div
         infoDivElement.appendChild(upcomingNameElement)
 
         // create element to hold formated information (mission discription)
         var upcomingMissionElement = document.createElement('p')
         upcomingMissionElement.textContent = upcomingLaunchMission
         upcomingMissionElement.classList = 'w3-padding-16'
-        // append mission description to parent div
+            // append mission description to parent div
         infoDivElement.appendChild(upcomingMissionElement)
 
         // create element to hold formated information (countdown)
         var upcomingTimerElement = document.createElement('p')
         upcomingTimerElement.textContent = upcomingLaunchTimer
-        // append countdown to parent div
+            // append countdown to parent div
         infoDivElement.appendChild(upcomingTimerElement)
     }
 }
-
-
-upcomingLaunchData()
-    // displayLaunchInfo()
-
+upcomingLaunchData();
+// displayLaunchInfo()
