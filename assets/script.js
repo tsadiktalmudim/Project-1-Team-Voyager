@@ -138,7 +138,6 @@ var displayAstronautData = function (astronauts) {
         var astronautElement = document.createElement("img")
         astronautElement.src = astronautImageaddress
         astronautElement.classList = 'w3-round w3-image'
-        // correct display if no mission data available
         astronautElement.classList = ""
         astronautElement.height = 400
         astronautElement.width = 400
@@ -150,7 +149,7 @@ var displayAstronautData = function (astronauts) {
         // append name to parent div
         infoDivElement.appendChild(astroNameElement)
 
-        // create element to hold formated information (astronaut info)
+        // create element to hold formated information (astronaut bio)
         var astronautInfoElement = document.createElement("p")
         astronautInfoElement.innerHTML = astronautBio
         astronautInfoElement.classList = "w3 padding-16"
