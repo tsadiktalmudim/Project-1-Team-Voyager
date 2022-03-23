@@ -27,10 +27,12 @@ $("#apod-submit").on("click", function () {
   if (usersubmit) {
     //pushes the value to the apod function
     apod(usersubmit);
+    console.log(usersubmit)
   }
 });
 //apod history
 function apodHistory() {
+    $('.apod-form').empty()
   for (i = 0; i < localStorage.length; i++) {
     //getting the date from local storage
     var apodImg = localStorage.getItem(localStorage.key(i));
@@ -48,8 +50,10 @@ function apodHistory() {
     apodDiv.append(apodBtn, apodDeleteBtn);
     //appends the div and everything connected to the html
     recentSearch.append(apodDiv);
+    
   }
 }
+
 //apod api
 var apod = function (date) {
   var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
@@ -65,6 +69,7 @@ var apod = function (date) {
         $(".apodImg").attr("src", data.url);
         //save data to localstorage
         localStorage.setItem(apodTitle, apodDate);
+        apodHistory();
       });
     }
   });
@@ -90,7 +95,7 @@ $("#apodHistory").on("click", ".apod-delete-btn", function (event) {
   localStorage.removeItem(localStorage.key(apodBtnSleect));
 });
 apod();
-apodHistory();
+
 
 var infoContainerElement = document.querySelector("#infoContainer");
 
