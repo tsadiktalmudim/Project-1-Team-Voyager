@@ -37,13 +37,13 @@ function apodHistory() {
     //getting the date from local storage
     var apodImg = localStorage.getItem(localStorage.key(i));
     //creating a div container
-    var apodDiv = $("<div>").addClass("apod-form w3-col s2");
+    var apodDiv = $("<div>").addClass("apod-form w3-col m2 s5");
     //creating a button for the date selected
-    var apodBtn = $("<button>").addClass("apod-button").html(apodImg);
+    var apodBtn = $("<button>").addClass("apod-button w3-button w3-medium  w3-gray").html(apodImg);
     //creating a delete button
     var apodDeleteBtn = $("<button>")
-      .addClass("apod-delete-btn")
-      .html("delete");
+      .addClass("apod-delete-btn w3-button w3-medium w3-red")
+      .html("X");
     //where the div and btn's will be placed
     var recentSearch = $("#apodHistory");
     //appends apodbtn and deletebtn to the div
@@ -51,23 +51,7 @@ function apodHistory() {
     //appends the div and everything connected to the html
     recentSearch.append(apodDiv);
 
-<<<<<<< HEAD
-
-// Astronomy picture of the day
-var apod = function() {
-    var apodApi = 'https://api.nasa.gov/planetary/apod?api_key=' + apiKey;
-    fetch(apodApi).then(function(response) {
-        if (response.ok) {
-            response.json().then(function(data) {
-                $('.apodImg').attr('src', data.url)
-                console.log(data)
-                console.log(data.url)
-            })
-        }
-    })
-=======
   }
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
 }
 
 //apod api
@@ -78,11 +62,13 @@ var apod = function (date) {
   fetch(apodApi).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
+        console.log(data)
         //variables for localstorage
         var apodDate = data.date;
         var apodTitle = data.title;
         //append the img to the html
         $(".apodImg").attr("src", data.url);
+        $('.apodImg').attr('alt', data.explanation)
         //save data to localstorage
         localStorage.setItem(apodTitle, apodDate);
         apodHistory();
@@ -111,45 +97,6 @@ $("#apodHistory").on("click", ".apod-delete-btn", function (event) {
   localStorage.removeItem(localStorage.key(apodBtnSleect));
 });
 apod();
-<<<<<<< HEAD
-var infoContainerElement = document.querySelector('#infoContainer')
-
-
-// FETCH API FOR UPCOMING LAUNCHES
-function upcomingLaunchData() {
-    var apiURL = `https://lldev.thespacedevs.com/2.2.0/launch/upcoming/`
-
-    fetch(apiURL).then(function(response) {
-        if (response.ok) {
-            console.log(response)
-            response.json().then(function(data) {
-                console.log(data)
-                displayLaunchInfo(data)
-            })
-        } else {
-            alert('ERROR!')
-        }
-    })
-}
-
-var displayLaunchInfo = function(upcomingLaunch) {
-    // loop through response
-    for (var i = 0; i < upcomingLaunch.results.length; i++) {
-        // format information from api fetch
-        var upcomingLaunchName = upcomingLaunch.results[i].name
-        var upcomingLaunchMission = ""
-        if (upcomingLaunch.results[i].mission) {
-            upcomingLaunchMission = upcomingLaunch.results[i].mission.description
-        }
-        var upcomingLaunchTimer = upcomingLaunch.results[i].window_end
-        var upcomingLaunchImage = upcomingLaunch.results[i].image
-
-        // create container card for upcomingLaunch info
-        var infoDivElement = document.createElement('div')
-        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge'
-            // append div to parent container
-        document.getElementById("launchInfoContainer").appendChild(infoDivElement)
-=======
 
 function fetchData() {
   //check to if document contains a div with the specified ID and display the correct js to the HTML page
@@ -199,7 +146,6 @@ var displayLaunchInfo = function (upcomingLaunch) {
     infoDivElement.classList = 'launching-div w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge w3-margin'
     // append div to parent container
     infoContainerElement.appendChild(infoDivElement)
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
 
     var upcomingLaunchImage = upcomingLaunch.results[i].image;
     var launch = upcomingLaunch.results[i].window_end;
@@ -207,56 +153,6 @@ var displayLaunchInfo = function (upcomingLaunch) {
     var launchFormat = launch.substring(0, 10);
     var endDate = new Date(launchFormat).getTime();
 
-<<<<<<< HEAD
-        // create element to hold formated information (name) 
-        var upcomingNameElement = document.createElement('h2')
-        upcomingNameElement.textContent = upcomingLaunchName
-            // append name headline to parent div
-        infoDivElement.appendChild(upcomingNameElement)
-
-        // create element to hold formated information (mission discription)
-        var upcomingMissionElement = document.createElement('p')
-        upcomingMissionElement.textContent = upcomingLaunchMission
-        upcomingMissionElement.classList = 'w3-padding-16'
-            // append mission description to parent div
-        infoDivElement.appendChild(upcomingMissionElement)
-
-        // create element to hold formated information (countdown)
-        var upcomingTimerElement = document.createElement('p')
-        upcomingTimerElement.textContent = upcomingLaunchTimer
-            // append countdown to parent div
-        infoDivElement.appendChild(upcomingTimerElement)
-    }
-}
-
-
-// FETCH API FOR ASTRONAUT INFO
-function astronautData() {
-    var apiURL = `https://lldev.thespacedevs.com/2.2.0/astronaut/`
-
-    fetch(apiURL).then(function(response) {
-        if (response.ok) {
-            console.log(response)
-            response.json().then(function(data) {
-                console.log(data)
-                displayAstronautData(data)
-            })
-        } else {
-            alert('ERROR!')
-        }
-    })
-}
-
-function fetchData() {
-    //check to if document contains a div with the specified ID and display the correct js to the HTML page
-    if (document.getElementById("astronautInfoContainer")) {
-        astronautData()
-    }
-    if (document.getElementById("launchInfoContainer")) {
-        upcomingLaunchData()
-    }
-}
-=======
     //  create element to hold image
     var upcomingImageElement = document.createElement("img");
     upcomingImageElement.src = upcomingLaunchImage;
@@ -287,65 +183,17 @@ function fetchData() {
     // Passing j, and enDate for the bind to work
     var countDownTimer = (j, endDate) => {
       var now = new Date().getTime();
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
 
       var remainingTime = endDate - now;
 
       const second = 1000;
 
-<<<<<<< HEAD
-var displayAstronautData = function(astronauts) {
-    // loop through astronaut info
-    for (var i = 0; i < astronauts.results.length; i++) {
-        //format information from api fetch
-        var astronautName = astronauts.results[i].name
-        var astronautNationality = astronauts.results[i].nationality
-        var agencyName = astronauts.results[i].agency_name
-        var astronautImageaddress = astronauts.results[i].profile_image
-        var astronautBio = astronauts.results[i].bio
-
-        // create container for astronaut info
-        var infoDivElement = document.createElement("div")
-        infoDivElement.classList = "w3-container w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge"
-            //append div to parent container
-        var infoContainerElement = document.getElementById("astronautInfoContainer")
-        infoContainerElement.appendChild(infoDivElement)
-=======
       const minute = second * 60;
 
       const hour = minute * 60;
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
 
       const day = hour * 24;
 
-<<<<<<< HEAD
-        // element to hold image
-        var astronautElement = document.createElement("img")
-        astronautElement.src = astronautImageaddress
-        astronautElement.classList = 'w3-round w3-image astronaut'
-            // correct display if no mission data available
-        astronautElement.classList = ""
-        astronautElement.height = 400
-        astronautElement.width = 400
-        infoDivElement.append(astronautElement)
-
-        // create element to hold formated information (name)
-        var astroNameElement = document.createElement("h2")
-        astroNameElement.textContent = astronautName
-            // append name to parent div
-        infoDivElement.appendChild(astroNameElement)
-
-        // create element to hold formated information (astronaut info)
-        var astronautInfoElement = document.createElement("p")
-        astronautInfoElement.innerHTML = astronautBio
-        astronautInfoElement.classList = "w3 padding-16"
-            // append astronaut info to parent
-        infoDivElement.appendChild(astronautInfoElement)
-
-
-    }
-}
-=======
       daysLeft = Math.trunc(remainingTime / day);
 
       hoursLeft = Math.trunc((remainingTime % day) / hour);
@@ -368,7 +216,6 @@ var displayAstronautData = function(astronauts) {
       );
       //   console.log([j]);
       // If timmer hits 0 this is what it will exicute , we can add some effects here he if we want
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
 
       if (remainingTime < 0) {
         $("#rocketlaunches" + [j]).html("We Have Liftoff!!!!!!!!!!!! ");
