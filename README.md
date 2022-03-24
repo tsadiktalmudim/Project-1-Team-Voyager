@@ -33,4 +33,4 @@ Paul Soliz: https://github.com/ModiFir3
 
 # ScreenShots
 
-![alt text](./assets/images/voyager%20mainpage.png)
+![alt text](./assets/images/voyager-homepage.png)
