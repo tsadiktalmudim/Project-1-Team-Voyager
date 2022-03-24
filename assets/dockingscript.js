@@ -26,6 +26,7 @@ function fetchData() {
 eventData();
 
 var displayEventData = function(event) {
+    $('.astroEvent').remove()
     // loop through astronaut info
     for (var i = 0; i < event.results.length; i++) {
         //format information from api fetch
@@ -38,7 +39,7 @@ var displayEventData = function(event) {
         // create container for astronaut info
         var infoDivElement = document.createElement("div");
         infoDivElement.classList =
-            "w3-container w3-center w3-border w3-border-purple w3-dark-gray w3-round-xxlarge w3-margin";
+            "astroEvent w3-container w3-center w3-border w3-border-purple w3-dark-gray w3-round-xxlarge w3-margin";
         //append div to parent container
         var infoContainerElement = document.getElementById("eventInfoContainer");
         infoContainerElement.appendChild(infoDivElement);
