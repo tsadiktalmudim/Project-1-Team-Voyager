@@ -66,6 +66,12 @@ var displayAstronautData = function (astronauts) {
     astronautInfoElement.classList = "w3 padding-16";
     // append astronaut info to parent
     infoDivElement.appendChild(astronautInfoElement);
+
+    var astronautInfoElement = document.createElement("p");
+    astronautInfoElement.innerHTML = astronautBio;
+    astronautInfoElement.classList = "w3 padding-16";
+    // append astronaut info to parent
+    infoDivElement.appendChild(astronautInfoElement);
   }
 };
 
