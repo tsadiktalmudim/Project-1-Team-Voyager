@@ -1,56 +1,10 @@
-<<<<<<< HEAD
-    .btmLeft {
-        height: 300px;
-    }
-    
-    .rightColBox {
-        height: 100px;
-        margin: 20px;
-    }
-    
-    *,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-        text-decoration: none;
-        font-family: 'Russo One';
-    }
-    
-    .w3-card-4 {
-        height: 400px;
-    }
-    /* launch page */
-    
-    .search {
-        display: flex;
-        justify-content: center;
-    }
-    
-    #navBar {
-        padding-top: 10px;
-    }
-    
-    #voyager-title {
-        font-size: 60px;
-        margin-left: 50px;
-    }
-    
-    .astronaut {
-        width: 50%;
-    }
-=======
 .btmLeft {
-  height: 300px;
+    height: 300px;
 }
 
 .rightColBox {
-  height: 100px;
-  margin: 20px;
+    height: 100px;
+    margin: 20px;
 }
 
 *,
@@ -62,32 +16,27 @@ h4,
 h5,
 h6,
 p {
-  text-decoration: none;
-  font-family: "Russo One";
+    text-decoration: none;
+    font-family: 'Russo One';
 }
 
 .w3-card-4 {
-  height: 400px;
+    height: 400px;
 }
+
+
 /* launch page */
 
 .search {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #navBar {
-  padding-top: 80px;
-  font-size: 20px;
+    padding-top: 10px;
 }
 
 #voyager-title {
-  font-size: 80px;
-  margin-left: 50px;
+    font-size: 60px;
+    margin-left: 50px;
 }
-
-.hide {
-    display: none;
-}
-
->>>>>>> 0d8936aebf058a7571d3f07b8d0b9418b4402ecc
