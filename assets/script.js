@@ -140,12 +140,11 @@ var displayLaunchInfo = function (upcomingLaunch) {
     var upcomingLaunchName = upcomingLaunch.results[i].name;
     var upcomingLaunchMission = upcomingLaunch.results[i].mission.description;
 
-    // create container card for upcomingLaunch info
-    var infoDivElement = document.createElement("div");
-    infoDivElement.classList =
-      "launching-div w3-container w3-col l6 m12 s12 w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge w3-padding-64 astro";
-    // append div to parent container
-    infoContainerElement.appendChild(infoDivElement);
+        // create container card for upcomingLaunch info
+        var infoDivElement = document.createElement('div')
+        infoDivElement.classList = 'launching-div w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge w3-margin'
+            // append div to parent container
+        infoContainerElement.appendChild(infoDivElement)
 
     var upcomingLaunchImage = upcomingLaunch.results[i].image;
     var launch = upcomingLaunch.results[i].window_end;
@@ -156,9 +155,10 @@ var displayLaunchInfo = function (upcomingLaunch) {
     //  create element to hold image
     var upcomingImageElement = document.createElement("img");
     upcomingImageElement.src = upcomingLaunchImage;
-    upcomingImageElement.classList = "rocketImg vw3-round w3-image";
+    upcomingImageElement.classList = "rocketImg w3-round w3-image w3-margin-top";
+    upcomingImageElement.height = 500
+    upcomingImageElement.width = 500
 
-    upcomingImageElement.width = 300;
     infoDivElement.appendChild(upcomingImageElement);
 
     // create element to hold formated information (name)
@@ -167,21 +167,14 @@ var displayLaunchInfo = function (upcomingLaunch) {
     // append name headline to parent div
     infoDivElement.appendChild(upcomingNameElement);
 
-    // create element to hold formated information (mission discription)
-    var upcomingMissionElement = document.createElement("p");
-    upcomingMissionElement.textContent = upcomingLaunchMission;
-    upcomingMissionElement.classList = "w3-padding-16";
-    // append mission description to parent div
-    infoDivElement.appendChild(upcomingMissionElement);
-
-    // create element to hold formated information (countdown)
-    var upcomingTimerElement = document.createElement("p");
-    // need to create a unique id for each this to work
-    upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
-    upcomingTimerElement.setAttribute("class", "rocketlaunches");
-
-    infoDivElement.appendChild(upcomingTimerElement);
-    // Passing j, and enDate for the bind to work
+        // create element to hold formated information (countdown)
+        var upcomingTimerElement = document.createElement("p");
+        upcomingTimerElement.classList = 'w3-panel w3-round w3-light-gray w3-border w3-border-orange'
+        // need to create a unique id for each this to work 
+        upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
+        infoDivElement.appendChild(upcomingTimerElement);
+    
+        // Passing j, and enDate for the bind to work
     var countDownTimer = (j, endDate) => {
       var now = new Date().getTime();
 
@@ -269,7 +262,7 @@ var displayIssInfo = function (issData) {
   // create dive and append to stationContainer
   var issDivEl = document.createElement("div");
   issDivEl.classList =
-    "w3-container w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge";
+    "w3-container w3-center w3-border w3-border-lime w3-dark-gray w3-round-xlarge w3-margin-top";
   stationContainerEl.appendChild(issDivEl);
   stationContainerEl.classList = "w3-container w3-center";
 
@@ -281,7 +274,7 @@ var displayIssInfo = function (issData) {
   // create and append station image
   var issImageEl = document.createElement("img");
   issImageEl.src = issImage;
-  issImageEl.classList = "w3-round w3-image";
+  issImageEl.classList = "w3-round-xlarge w3-image";
   issImageEl.height = 700;
   issImageEl.width = 700;
   issDivEl.appendChild(issImageEl);
@@ -313,13 +306,13 @@ var displayIssInfo = function (issData) {
 
   // create and append height button
   var issHeightEl = document.createElement("btn");
-  issHeightEl.textContent = `Height: ${issHeight}ft`;
+  issHeightEl.textContent = `Height: ${issHeight}m`;
   issHeightEl.classList = "w3-button w3-round w3-red";
   issInfoDiv.appendChild(issHeightEl);
 
   // create and append width button
   var issWidthEl = document.createElement("btn");
-  issWidthEl.textContent = `Width: ${isswidth}ft`;
+  issWidthEl.textContent = `Width: ${isswidth}m`;
   issWidthEl.classList = "w3-button w3-round w3-red";
   issInfoDiv.appendChild(issWidthEl);
 };

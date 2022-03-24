@@ -51,14 +51,48 @@ p {
   margin-left: 50px;
 }
 
-#astronautInfoContainer {
-  margin: auto;
-  /* padding: 200px; */
+
+
+#launchInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.astro {
-  height: 800px;
+#astronautInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#eventInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#stationInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .infoCard {
   border-radius: 18px;
@@ -108,15 +142,4 @@ p {
     background-position: 0% 50%;
   }
 }
-.rocketImg {
-  min-height: 50%;
-  border-radius: 10px;
-}
 
-.rocketlaunches {
-  text-align: center;
-  font-family: Bangers;
-  color: white;
-  font-size: 30px;
-  letter-spacing: 2px;
-}
