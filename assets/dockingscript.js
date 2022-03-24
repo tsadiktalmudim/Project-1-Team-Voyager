@@ -46,9 +46,8 @@ var displayEventData = function(event) {
         // element to hold image
         var eventElement = document.createElement("img");
         eventElement.src = eventPicture;
-        eventElement.classList = "w3-round w3-image";
+        eventElement.classList = "w3-round w3-image w3-margin-top w3-mobile";
         // correct display if no mission data available
-        event.classList = "";
         eventElement.height = 400;
         eventElement.width = 400;
         infoDivElement.append(eventElement);

@@ -34,10 +34,9 @@ var displayAstronautData = function(astronauts) {
         var astronautImageaddress = astronauts.results[i].profile_image;
         var astronautBio = astronauts.results[i].bio;
 
-        // create container for astronaut info
         var infoDivElement = document.createElement("div");
         infoDivElement.classList =
-            "w3-container w3-center w3-border w3-border-purple w3-dark-gray w3-round-xxlarge w3-margin";
+            "w3-container w3-center w3-border w3-border-pink w3-dark-gray w3-round-xxlarge w3-margin";
         //append div to parent container
         var infoContainerElement = document.getElementById(
             "astronautInfoContainer"
@@ -47,9 +46,8 @@ var displayAstronautData = function(astronauts) {
         // element to hold image
         var astronautElement = document.createElement("img");
         astronautElement.src = astronautImageaddress;
-        astronautElement.classList = "w3-round w3-image";
+        astronautElement.classList = "w3-round w3-image w3-margin-top w3-mobile";
         // correct display if no mission data available
-        astronautElement.classList = "";
         astronautElement.height = 400;
         astronautElement.width = 400;
         infoDivElement.append(astronautElement);
