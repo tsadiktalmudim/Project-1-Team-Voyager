@@ -140,11 +140,11 @@ var displayLaunchInfo = function (upcomingLaunch) {
     var upcomingLaunchName = upcomingLaunch.results[i].name;
     var upcomingLaunchMission = upcomingLaunch.results[i].mission.description;
 
-        // create container card for upcomingLaunch info
-        var infoDivElement = document.createElement('div')
-        infoDivElement.classList = 'launching-div w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge w3-margin'
-            // append div to parent container
-        infoContainerElement.appendChild(infoDivElement)
+    // create container card for upcomingLaunch info
+    var infoDivElement = document.createElement('div')
+    infoDivElement.classList = 'launching-div w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge w3-margin'
+    // append div to parent container
+    infoContainerElement.appendChild(infoDivElement)
 
     var upcomingLaunchImage = upcomingLaunch.results[i].image;
     var launch = upcomingLaunch.results[i].window_end;
@@ -167,14 +167,18 @@ var displayLaunchInfo = function (upcomingLaunch) {
     // append name headline to parent div
     infoDivElement.appendChild(upcomingNameElement);
 
-        // create element to hold formated information (countdown)
-        var upcomingTimerElement = document.createElement("p");
-        upcomingTimerElement.classList = 'w3-panel w3-round w3-light-gray w3-border w3-border-orange'
-        // need to create a unique id for each this to work 
-        upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
-        infoDivElement.appendChild(upcomingTimerElement);
+    var upcomingMissionEl = document.createElement('p')
+    upcomingMissionEl.textContent = upcomingLaunchMission
+    infoDivElement.appendChild(upcomingMissionEl)
+
+    // create element to hold formated information (countdown)
+    var upcomingTimerElement = document.createElement("p");
+    upcomingTimerElement.classList = 'w3-panel w3-round w3-light-gray w3-border w3-border-orange'
+    // need to create a unique id for each this to work 
+    upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
+    infoDivElement.appendChild(upcomingTimerElement);
     
-        // Passing j, and enDate for the bind to work
+    // Passing j, and enDate for the bind to work
     var countDownTimer = (j, endDate) => {
       var now = new Date().getTime();
 
