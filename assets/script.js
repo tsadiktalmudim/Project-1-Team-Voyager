@@ -37,13 +37,13 @@ function apodHistory() {
     //getting the date from local storage
     var apodImg = localStorage.getItem(localStorage.key(i));
     //creating a div container
-    var apodDiv = $("<div>").addClass("apod-form w3-col s2");
+    var apodDiv = $("<div>").addClass("apod-form w3-col m2 s5");
     //creating a button for the date selected
-    var apodBtn = $("<button>").addClass("apod-button").html(apodImg);
+    var apodBtn = $("<button>").addClass("apod-button w3-button w3-medium  w3-gray").html(apodImg);
     //creating a delete button
     var apodDeleteBtn = $("<button>")
-      .addClass("apod-delete-btn")
-      .html("delete");
+      .addClass("apod-delete-btn w3-button w3-medium w3-red")
+      .html("X");
     //where the div and btn's will be placed
     var recentSearch = $("#apodHistory");
     //appends apodbtn and deletebtn to the div
@@ -78,11 +78,13 @@ var apod = function (date) {
   fetch(apodApi).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
+        console.log(data)
         //variables for localstorage
         var apodDate = data.date;
         var apodTitle = data.title;
         //append the img to the html
         $(".apodImg").attr("src", data.url);
+        $('.apodImg').attr('alt', data.explanation)
         //save data to localstorage
         localStorage.setItem(apodTitle, apodDate);
         apodHistory();
