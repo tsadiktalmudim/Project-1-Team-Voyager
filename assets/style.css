@@ -53,14 +53,46 @@ p {
     margin-left: 50px;
 }
 
-#astronautInfoContainer {
+/* #astronautInfoContainer {
     margin: auto;
-    /* padding: 200px; */
+    padding: 200px;
+} */
+
+/* .astro {
+    height: 800px;
+} */
+
+#launchInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.astro {
-    height: 800px;
+#astronautInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#eventInfoContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
 .infoCard {
     border-radius: 18px;

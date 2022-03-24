@@ -142,7 +142,7 @@ var displayLaunchInfo = function(upcomingLaunch) {
 
         // create container card for upcomingLaunch info
         var infoDivElement = document.createElement('div')
-        infoDivElement.classList = 'w3-container w3-col l6 m12 s12 w3-center w3-border w3-border-gray w3-dark-gray w3-round-xlarge w3-padding-64 astro'
+        infoDivElement.classList = 'w3-container w3-center w3-border w3-border-purple w3-dark-gray w3-round-xxlarge w3-margin'
             // append div to parent container
         infoContainerElement.appendChild(infoDivElement)
 
@@ -175,6 +175,7 @@ var displayLaunchInfo = function(upcomingLaunch) {
 
         // create element to hold formated information (countdown)
         var upcomingTimerElement = document.createElement("p");
+        upcomingTimerElement.classList = 'w3-panel w3-round w3-deep-orange'
         // need to create a unique id for each this to work
         upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
 
