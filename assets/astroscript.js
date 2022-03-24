@@ -60,7 +60,6 @@ var displayAstronautData = function(astronauts) {
         // append name to parent div
         infoDivElement.appendChild(astroNameElement);
 
-<<<<<<< HEAD
         // create element to hold formated information (astronaut info)
         var astronautInfoElement = document.createElement("p");
         astronautInfoElement.innerHTML = astronautBio;
@@ -68,21 +67,6 @@ var displayAstronautData = function(astronauts) {
         // append astronaut info to parent
         infoDivElement.appendChild(astronautInfoElement);
     }
-=======
-    // create element to hold formated information (astronaut info)
-    var astronautInfoElement = document.createElement("p");
-    astronautInfoElement.innerHTML = astronautBio;
-    astronautInfoElement.classList = "w3 padding-16";
-    // append astronaut info to parent
-    infoDivElement.appendChild(astronautInfoElement);
-
-    var astronautInfoElement = document.createElement("p");
-    astronautInfoElement.innerHTML = astronautBio;
-    astronautInfoElement.classList = "w3 padding-16";
-    // append astronaut info to parent
-    infoDivElement.appendChild(astronautInfoElement);
-  }
->>>>>>> 03184b6513d77cb679b6542cf8b2dd3f87b19e63
 };
 
 fetchData();
