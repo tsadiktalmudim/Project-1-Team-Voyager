@@ -32,49 +32,48 @@ $("#apod-submit").on("click", function() {
 });
 //apod history
 function apodHistory() {
-
-  $('.apod-form').empty()
-  for (i = 0; i < localStorage.length; i++) {
-    //getting the date from local storage
-    var apodImg = localStorage.getItem(localStorage.key(i));
-    //creating a div container
-    var apodDiv = $("<div>").addClass("apod-form w3-col m2 s12");
-    //creating a button for the date selected
-    var apodBtn = $("<button>").addClass("apod-button w3-button w3-medium  w3-gray").html(apodImg);
-    //creating a delete button
-    var apodDeleteBtn = $("<button>")
-      .addClass("apod-delete-btn w3-button w3-medium w3-red")
-      .html("X");
-    //where the div and btn's will be placed
-    var recentSearch = $("#apodHistory");
-    //appends apodbtn and deletebtn to the div
-    apodDiv.append(apodBtn, apodDeleteBtn);
-    //appends the div and everything connected to the html
-    recentSearch.append(apodDiv);
+    $('.apod-form').empty()
+    for (i = 0; i < localStorage.length; i++) {
+        //getting the date from local storage
+        var apodImg = localStorage.getItem(localStorage.key(i));
+        //creating a div container
+        var apodDiv = $("<div>").addClass("apod-form w3-col m2 s12");
+        //creating a button for the date selected
+        var apodBtn = $("<button>").addClass("apod-button w3-button w3-medium w3-gray").html(apodImg);
+        //creating a delete button
+        var apodDeleteBtn = $("<button>")
+            .addClass("apod-delete-btn w3-button w3-medium w3-red")
+            .html("X");
+        //where the div and btn's will be placed
+        var recentSearch = $("#apodHistory");
+        //appends apodbtn and deletebtn to the div
+        apodDiv.append(apodBtn, apodDeleteBtn);
+        //appends the div and everything connected to the html
+        recentSearch.append(apodDiv);
 
     }
 }
 
 //apod api
-var apod = function (date) {
-  var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
-  var apodApi =
-    "https://api.nasa.gov/planetary/apod?api_key=" + apiKey + "&date=" + date;
-  fetch(apodApi).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        //variables for localstorage
-        var apodDate = data.date;
-        var apodTitle = data.title;
-        //append the img to the html
-        $(".apodImg").attr("src", data.url);
-        $('.apodImg').attr('alt', data.explanation)
-        //save data to localstorage
-        localStorage.setItem(apodTitle, apodDate);
-        apodHistory();
-      });
-    }
-  });
+var apod = function(date) {
+    var apiKey = "C3Y2n0r4MS4rDGTcmc2tBopQ0tq65lTPdkk9aVS2";
+    var apodApi =
+        "https://api.nasa.gov/planetary/apod?api_key=" + apiKey + "&date=" + date;
+    fetch(apodApi).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                //variables for localstorage
+                var apodDate = data.date;
+                var apodTitle = data.title;
+                //append the img to the html
+                $(".apodImg").attr("src", data.url);
+                $('.apodImg').attr('alt', data.explanation)
+                    //save data to localstorage
+                localStorage.setItem(apodTitle, apodDate);
+                apodHistory();
+            });
+        }
+    });
 };
 //clicking apod-btn
 $("#apodHistory").on("click", ".apod-button", function(event) {
