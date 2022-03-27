@@ -36,7 +36,7 @@ var displayAstronautData = function(astronauts) {
 
         var infoDivElement = document.createElement("div");
         infoDivElement.classList =
-            "w3-container w3-center w3-border w3-border-pink w3-dark-gray w3-round-xxlarge w3-margin";
+            "astro-div astro-border w3-center w3-dark-gray w3-round-xxlarge w3-margin";
         //append div to parent container
         var infoContainerElement = document.getElementById(
             "astronautInfoContainer"

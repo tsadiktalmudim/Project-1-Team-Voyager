@@ -143,3 +143,161 @@ p {
   }
 }
 
+.apodImg {
+  max-width: 2000px;
+  max-height: 800px;
+}
+
+.apodMainImage {
+
+  width:fit-content;
+  height:fit-content;
+  margin: auto;
+  margin-bottom: 40px;
+  border-radius: 18px;
+  background: #1d1d1d;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.launching-div {
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.launch-border::after {
+  content: "";
+  background: linear-gradient(
+      45deg,
+      #ff0000 0%,
+      #ff9a00 10%,
+      #d0de21 20%,
+      #e7be07 30%,
+      #b6f50b 40%,
+      #f57905 50%,
+      #eea41c 60%,
+      #f2ac15 70%,
+      #f8270c 80%,
+      #fb5407 90%,
+      #ff4800 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  transform: translateZ(-1px);
+  /*or z-index */
+  animation: rgb 6s linear infinite;
+}
+
+
+.panel {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.astroEvent {
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.event-border::after {
+  content: "";
+  background: linear-gradient(
+      45deg,
+      #f700ff 0%,
+      #ea00ff 10%,
+      #f72297 20%,
+      #ee06b4 30%,
+      #da0bf5 40%,
+      #cd05f5 50%,
+      #f0025d 60%,
+      #ca005e 70%,
+      #e811f0 80%,
+      #ff20ff 90%,
+      #ff3cb4 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  transform: translateZ(-1px);
+  /*or z-index */
+  animation: rgb 6s linear infinite;
+}
+
+.astro-div {
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.astro-border::after {
+  content: "";
+  background: linear-gradient(
+      45deg,
+      #00e1ff 0%,
+      #006eff 10%,
+      #22f0f7 20%,
+      #066aee 30%,
+      #0bedf5 40%,
+      #8105f5 50%,
+      #0271f0 60%,
+      #8a00ca 70%,
+      #11f0d2 80%,
+      #da20ff 90%,
+      #3c7aff 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  transform: translateZ(-1px);
+  /*or z-index */
+  animation: rgb 6s linear infinite;
+}
+
+.iss-div {
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.iss-border::after {
+  content: "";
+  background: linear-gradient(
+      45deg,
+      #a6ff00 0%,
+      #b3ff00 10%,
+      #f7f422 20%,
+      #5bee06 30%,
+      #f5ca0b 40%,
+      #99f505 50%,
+      #95f002 60%,
+      #cabc00 70%,
+      #c0f011 80%,
+      #fbff20 90%,
+      #53ff3c 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  transform: translateZ(-1px);
+  /*or z-index */
+  animation: rgb 6s linear infinite;
+}
+
