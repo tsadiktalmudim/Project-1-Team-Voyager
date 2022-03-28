@@ -126,7 +126,7 @@ function upcomingLaunchData() {
         displayLaunchInfo(data);
       });
     } else {
-      alert("ERROR!");
+    
     }
   });
 }
@@ -247,7 +247,7 @@ function fetchIssData() {
         displayIssInfo(data);
       });
     } else {
-      alert("ERROR!");
+    
     }
   });
 }
