@@ -142,7 +142,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
     // create container card for upcomingLaunch info
     var infoDivElement = document.createElement('div')
-    infoDivElement.classList = 'launching-div w3-container w3-center w3-border w3-border-orange w3-dark-gray w3-round-xxlarge w3-margin'
+    infoDivElement.classList = 'launching-div launch-border w3-center w3-dark-gray w3-round-xxlarge w3-margin'
     // append div to parent container
     infoContainerElement.appendChild(infoDivElement)
 
@@ -173,7 +173,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
 
     // create element to hold formated information (countdown)
     var upcomingTimerElement = document.createElement("p");
-    upcomingTimerElement.classList = 'w3-panel w3-round w3-light-gray w3-border w3-border-orange'
+    upcomingTimerElement.classList = 'w3-panel w3-round w3-light-gray w3-border w3-border-orange panel'
     // need to create a unique id for each this to work 
     upcomingTimerElement.setAttribute("id", "rocketlaunches" + [i]);
     infoDivElement.appendChild(upcomingTimerElement);
@@ -266,7 +266,7 @@ var displayIssInfo = function (issData) {
   // create dive and append to stationContainer
   var issDivEl = document.createElement("div");
   issDivEl.classList =
-    "w3-container w3-center w3-border w3-border-lime w3-dark-gray w3-round-xlarge w3-margin-top";
+    "iss-div iss-border w3-center w3-border w3-dark-gray w3-round-xlarge w3-margin-top";
   stationContainerEl.appendChild(issDivEl);
   stationContainerEl.classList = "w3-container w3-center";
 
@@ -293,7 +293,7 @@ var displayIssInfo = function (issData) {
 
   // create new div for ISS info
   var issInfoDiv = document.createElement("div");
-  issInfoDiv.classList = "w3-container w3-center";
+  issInfoDiv.classList = "w3-container w3-center panel";
   stationContainerEl.appendChild(issInfoDiv);
 
   // create and append orbit button
