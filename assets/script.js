@@ -138,7 +138,7 @@ var displayLaunchInfo = function (upcomingLaunch) {
   for (var i = 0; i < upcomingLaunch.results.length; i++) {
     // format information from api fetch
     var upcomingLaunchName = upcomingLaunch.results[i].name;
-    var upcomingLaunchMission = upcomingLaunch.results[i].mission.description;
+    var upcomingLaunchMission = upcomingLaunch.results[i].status.description
 
     // create container card for upcomingLaunch info
     var infoDivElement = document.createElement('div')
